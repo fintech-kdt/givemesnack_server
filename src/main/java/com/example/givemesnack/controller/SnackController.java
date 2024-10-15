@@ -17,7 +17,7 @@ public class SnackController {
 
     @GetMapping
     public ResponseEntity<List<Snack>> getSnack() {
-        return ResponseEntity.ok(snackRepository.findAll());
+        return ResponseEntity.ok(snackRepository.findAllWithDelay());
     }
 
     @PostMapping
