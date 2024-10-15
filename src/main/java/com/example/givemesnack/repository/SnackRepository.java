@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface SnackRepository extends JpaRepository<Snack, Long> {
 
-    @Query(value = "SELECT * FROM snack WHERE (RAND() < 0.5 AND SLEEP(15)) OR 1", nativeQuery = true)
+    @Query(value = "SELECT * FROM snacks WHERE (IF(RAND() < 0.4, SLEEP(15), 1)) = 1", nativeQuery = true)
     List<Snack> findAllWithDelay();
 }
